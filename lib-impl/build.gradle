@@ -1,0 +1,25 @@
+apply plugin: 'java-library'
+apply plugin: 'maven-publish'
+ext{
+    groupId='com.example'
+}
+repositories {
+    mavenLocal()
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api  project(':lib-api')
+
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
+publishing {
+    publications {
+        mavenAar(MavenPublication) {
+            groupId='com.example'
+            version='1.0.0'
+            from components.java
+        }
+    }
+}

@@ -1,0 +1,19 @@
+apply plugin: 'java-library'
+apply plugin: 'maven-publish'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
+publishing {
+    publications {
+        mavenAar(MavenPublication) {
+            groupId='com.example'
+            version='1.0.0'
+            from components.java
+        }
+    }
+}

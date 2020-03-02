@@ -1,0 +1,4 @@
+rootProject.name='GradleTransitive Issue LIB'
+include ':lib-api'
+include ':lib-impl'
+include ':lib'
